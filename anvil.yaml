@@ -1,4 +1,67 @@
 allow_embedding: false
+db_schema:
+  clients:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: price_category
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: country
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      name: max_account_value
+      type: number
+    - admin_ui: {order: 4, width: 200}
+      name: currency
+      type: string
+    server: full
+    title: clients
+  master_styles:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: ref_id
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: client
+      target: clients
+      type: link_single
+    - admin_ui: {order: 2, width: 200}
+      name: picture
+      type: media
+    - admin_ui: {order: 3, width: 200}
+      name: description
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: created_at
+      type: datetime
+    server: full
+    title: master_styles
+  style_skus:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: ref_id
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: master_style
+      target: master_styles
+      type: link_single
+    - admin_ui: {order: 2, width: 200}
+      name: color
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      name: size
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: qr_data
+      type: string
+    server: full
+    title: style_skus
 name: Material Design 1
 package_name: Material_Design_1
 runtime_options:
@@ -6,5 +69,8 @@ runtime_options:
   server_spec: {base: python310-minimal}
   server_version: python3-sandbox
   version: 2
-services: []
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
 startup_form: Form1
