@@ -1,10 +1,6 @@
 # Anvil Form Designer Configuration
 # This YAML shows the visual structure for MasterStyleList form
 # In Anvil's visual designer, you would drag these components
-
-container:
-  type: ColumnPanel
-  
 components:
   # Header
   - type: ColumnPanel
